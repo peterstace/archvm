@@ -18,6 +18,6 @@ Server = http://mirror.internode.on.net/pub/archlinux/$repo/os/$arch
 Server = http://ftp.swin.edu.au/archlinux/$repo/os/$arch
 Server = http://archlinux.melbourneitmirror.net/$repo/os/$arch
 Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
-' | /etc/pacman.d/mirrorlist
+' > /etc/pacman.d/mirrorlist
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
