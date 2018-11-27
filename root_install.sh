@@ -6,7 +6,7 @@ set -exo pipefail
 timedatectl set-ntp true
 
 # Set up disk partition.
-echo "type=83, bootable" | sfdisk /dev/sda
+echo "type=83, bootable" | sfdisk --force /dev/sda
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 
