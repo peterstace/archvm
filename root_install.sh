@@ -21,3 +21,8 @@ Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 ' > /etc/pacman.d/mirrorlist
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
+
+## Install inside chroot
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime
+hwclock --systohc
