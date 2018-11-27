@@ -35,11 +35,7 @@ loadkeys dvorak
 ## Install
 
 ```
-curl https://raw.githubusercontent.com/peterstace/archvm/master/root_install.sh | bash
-arch-chroot /mnt
-curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot_install.sh | bash
-exit # leaves the chroot
-shutdown -h
+curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bash
 ```
 
 Unmount the live CD, restart, then login as petsta.
