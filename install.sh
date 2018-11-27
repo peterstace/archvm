@@ -26,4 +26,4 @@ curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot.sh > /mnt
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt ./chroot.sh
 
-shutdown -h now
+reboot
