@@ -28,7 +28,9 @@ Update the following settings:
 
 ## Pre-Install
 
-TODO
+```
+loadkeys dvorak
+```
 
 ## Root Install
 
