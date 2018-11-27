@@ -14,14 +14,14 @@ echo "
 ::1         localhost
 127.0.1.1   archvm.localdomain archvm" >> /etc/hosts
 
-pacman -S grub
+pacman --noconfirm -S grub sudo
+
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
-passwd # TODO Can this be automated?
+echo "root:root" | chpasswd
 
-pacman -S sudo
-useradd -m -s /bin/bash petsta # TODO Should use fish?
-passwd petsta # TODO Can this be automated?
+useradd -m -s /bin/bash petsta
+echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
