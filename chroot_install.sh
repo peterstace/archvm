@@ -64,5 +64,5 @@ echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-systemctl enable --now dhcpcd.service
+systemctl enable dhcpcd.service
 
