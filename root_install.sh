@@ -1,5 +1,7 @@
 #!/bin/bash
 
-echo hello
+set -exo pipefail
+
+false
+
 timedatectl set-ntp true
-echo buy

@@ -34,7 +34,9 @@ loadkeys dvorak
 
 ## Root Install
 
-TODO
+```
+curl https://raw.githubusercontent.com/peterstace/archvm/master/root_install.sh | bash
+```
 
 ## User Install
 
