@@ -32,16 +32,10 @@ Update the following settings:
 loadkeys dvorak
 ```
 
-## Root Install
+## Install
 
 ```
 curl https://raw.githubusercontent.com/peterstace/archvm/master/root_install.sh | bash
+arch-chroot /mnt
+curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot_install.sh | bash
 ```
-
-## User Install
-
-TODO
-
-## Post Install
-
-TODO
