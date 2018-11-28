@@ -39,3 +39,7 @@ curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bas
 ```
 
 Unmount the live CD, restart, then login as petsta.
+
+```
+curl https://raw.githubusercontent.com/peterstace/archvm/master/setup.sh | bash
+```
