@@ -22,6 +22,7 @@ Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
+# Install inside chroot.
 curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot.sh > /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt ./chroot.sh

@@ -65,4 +65,4 @@ gpasswd -a petsta wheel
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
 systemctl enable dhcpcd.service
-
+systemctl enable sshd.socket
