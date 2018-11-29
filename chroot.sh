@@ -8,7 +8,7 @@ echo "en_AU.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 echo LANG=en_AU.UTF-8 > /etc/locale.conf
 echo KEYMAP=dvorak > /etc/vconsole.conf
-echo archvm > /etc/hostname
+echo "archvm_$(date +%Y%m%d)" > /etc/hostname
 echo "
 127.0.0.1   localhost
 ::1         localhost
