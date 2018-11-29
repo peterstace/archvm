@@ -59,7 +59,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "root:root" | chpasswd
 
-useradd -m -s /bin/bash petsta
+useradd -m -s /bin/fish petsta
 echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
