@@ -31,7 +31,7 @@ arch-chroot /mnt ./chroot.sh
 
 echo "press enter to continue (about to display ending) > " && read
 
-echo "
+echo '
 
 Next steps:
 
@@ -43,4 +43,4 @@ Next steps:
 
 - SSH into the machine using `ssh -p 2222 petsta@localhost`.
 
-"
+'
