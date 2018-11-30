@@ -2,6 +2,8 @@
 
 set -exo pipefail
 
+start=$(date '+%s%N')
+
 # NTP for time.
 timedatectl set-ntp true
 
@@ -27,4 +29,19 @@ curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot.sh > /mnt
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt ./chroot.sh
 
-shutdown -h now
+duration=$(echo "($(date '+%s%N') - $start) / 1000000000" | bc)
+echo "
+
+Duration: $duration sec
+
+Next steps:
+
+- Shutdown the virtual machine by using `shutdown -h now`.
+
+- Remove the virtual live CD.
+
+- Restart the machine but don't log in.
+
+- SSH into the machine using `ssh -p 2222 petsta@localhost`.
+
+"
