@@ -26,23 +26,38 @@ Update the following settings:
 | Network        | Forward 8000->8000, 2222->22     |
 | Shared Folders | `~/Downloads` (check Auto-mount) |
 
-## Pre-Install
+
+## Step 1
+
+Start the VM then run the following commands:
 
 ```
 loadkeys dvorak
+curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bash
+shutdown -h now
 ```
 
-## Install
+## Step 2
 
-1. Run the install script using  `curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bash`.
+Unmount the live CD, start the VM up again, and login as root.
 
-2. Shutdown the VM.
-
-3. Unmount the live CD and start the VM up again, and login.
-
-4. Run the setup script using: 
+Run the following commands:
 
 ```
-dhcpcd
-curl https://raw.githubusercontent.com/peterstace/archvm/master/setup.sh | bash
+/archvm/post_install.sh
+reboot
+```
+
+## Step 3
+
+Don't login. Instead, SSH into the machine using the following command:
+
+```
+ssh -p 2222 petsta@localhost
+```
+
+Then run the following command:
+
+```
+/archvm/setup.sh
 ```
