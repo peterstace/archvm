@@ -5,6 +5,41 @@ set -exo pipefail
 systemctl enable dhcpcd.service || false
 systemctl enable sshd.socket || false
 
+pacman --noconfirm -S \
+	aws-cli \
+	base-devel \
+	clang \
+	cmake \
+	diff-so-fancy \
+	docker \
+	docker-compose \
+	dos2unix \
+	exa \
+	expect \
+	fzf \
+	genius \
+	git \
+	gnupg \
+	gnuplot \
+	go \
+	hdparm \
+	htop \
+	jq \
+	ncdu \
+	parallel \
+	pass \
+	postgresql \
+	python2 \
+	python2-setuptools \
+	python3 \
+	the_silver_searcher \
+	time \
+	tmux \
+	traceroute \
+	unzip \
+	vim \
+	zsh
+
 # Set up SSH keys for Github.
 ssh-keygen -N "" -f "$HOME/.ssh/id_rsa"
 set +x
