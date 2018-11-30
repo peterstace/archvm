@@ -2,8 +2,6 @@
 
 set -exo pipefail
 
-start=$(date '+%s%N')
-
 # NTP for time.
 timedatectl set-ntp true
 
@@ -33,10 +31,7 @@ arch-chroot /mnt ./chroot.sh
 
 echo "press enter to continue (about to display ending) > " && read
 
-duration=$(echo "($(date '+%s%N') - $start) / 1000000000" | bc)
 echo "
-
-Duration: $duration sec
 
 Next steps:
 
