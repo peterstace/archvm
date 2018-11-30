@@ -2,6 +2,9 @@
 
 set -exo pipefail
 
+sudo systemctl enable dhcpcd.service || false
+sudo systemctl enable sshd.socket || false
+
 sudo pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
