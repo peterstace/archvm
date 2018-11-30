@@ -32,15 +32,9 @@ arch-chroot /mnt ./chroot.sh
 echo "press enter to continue (about to display ending) > " && read
 
 echo '
-
-Next steps:
-
+Next steps: 
 - Shutdown the virtual machine by using `shutdown -h now`.
-
 - Remove the virtual live CD.
-
-- Restart the machine but don't log in.
-
+- Restart the machine but do not log in.
 - SSH into the machine using `ssh -p 2222 petsta@localhost`.
-
 '
