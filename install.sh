@@ -12,6 +12,8 @@ echo "type=83, bootable" | sfdisk --force /dev/sda
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 
+read -P "press any key to continue "
+
 # Install base
 echo '
 ## Australia
@@ -23,6 +25,8 @@ Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 ' > /etc/pacman.d/mirrorlist
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
+
+read -P "press any key to continue "
 
 # Install inside chroot.
 curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot.sh > /mnt/chroot.sh
