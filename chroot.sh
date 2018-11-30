@@ -74,5 +74,5 @@ echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
 echo "press enter to continue " && read
 
-systemctl enable dhcpcd.service
-systemctl enable sshd.socket
+systemctl enable dhcpcd.service || false
+systemctl enable sshd.socket || false
