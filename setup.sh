@@ -2,6 +2,9 @@
 
 set -exo pipefail
 
+systemctl enable dhcpcd.service || false
+systemctl enable sshd.socket || false
+
 # Set up SSH keys for Github.
 ssh-keygen -N "" -f "$HOME/.ssh/id_rsa"
 set +x

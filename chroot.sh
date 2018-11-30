@@ -14,8 +14,6 @@ echo "
 ::1         localhost
 127.0.1.1   archvm.localdomain archvm" >> /etc/hosts
 
-echo "press enter to continue " && read
-
 pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
@@ -56,23 +54,12 @@ pacman --noconfirm -S \
 	wget \
 	zsh
 
-echo "press enter to continue " && read
-
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
-echo "press enter to continue " && read
-
 echo "root:root" | chpasswd
-
-echo "press enter to continue " && read
 
 useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
-
-echo "press enter to continue " && read
-
-systemctl enable dhcpcd.service || false
-systemctl enable sshd.socket || false
