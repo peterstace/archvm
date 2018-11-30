@@ -33,3 +33,9 @@ useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+
+echo "press enter to continue (about to enables services) > " && read
+
+systemctl enable dhcpcd.service
+systemctl enable sshd.socket
+
