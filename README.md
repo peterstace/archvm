@@ -34,10 +34,15 @@ loadkeys dvorak
 
 ## Install
 
-1. Run the install script. Once it is complete, the VM will shut down. `curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bash`
+1. Run the install script using  `curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bash`.
 
-2. Unmount the live CD and start the VM up again (don't log in).
+2. Shutdown the VM.
 
-3. Then SSH into the machine using using `ssh -p 2222 petsta@localhost`.
+3. Unmount the live CD and start the VM up again, and login.
 
-4. Run the setup script using `curl https://raw.githubusercontent.com/peterstace/archvm/master/setup.sh | bash`
+4. Run the setup script using: 
+
+```
+dhcpcd
+curl https://raw.githubusercontent.com/peterstace/archvm/master/setup.sh | bash
+```

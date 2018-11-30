@@ -2,10 +2,10 @@
 
 set -exo pipefail
 
-systemctl enable dhcpcd.service || false
-systemctl enable sshd.socket || false
+sudo systemctl enable dhcpcd.service || false
+sudo systemctl enable sshd.socket || false
 
-pacman --noconfirm -S \
+sudo pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
 	clang \
