@@ -24,10 +24,14 @@ Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
+echo "press enter to continue (about to install inside chroot) > " && read
+
 # Install inside chroot.
 curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot.sh > /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt ./chroot.sh
+
+echo "press enter to continue (about to display ending) > " && read
 
 duration=$(echo "($(date '+%s%N') - $start) / 1000000000" | bc)
 echo "

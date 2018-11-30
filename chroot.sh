@@ -54,10 +54,16 @@ pacman --noconfirm -S \
 	wget \
 	zsh
 
+echo "press enter to continue (about to install grub) > " && read
+
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
+echo "press enter to continue (about to set root password) > " && read
+
 echo "root:root" | chpasswd
+
+echo "press enter to continue (about to add user) > " && read
 
 useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd
