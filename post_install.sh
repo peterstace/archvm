@@ -2,6 +2,7 @@
 
 set -exo pipefail
 
+dhcpcd
 systemctl enable dhcpcd.service
 systemctl enable sshd.socket
 

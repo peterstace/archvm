@@ -14,7 +14,7 @@ mount /dev/sda1 /mnt
 mkdir -p /mnt/archvm
 for script in chroot post_install setup; do
 	src="https://raw.githubusercontent.com/peterstace/archvm/master/$script.sh"
-	dst="/mnt/archvm/$script"
+	dst="/mnt/archvm/$script.sh"
 	curl "$src" > "$dst"
 	chmod +x "$dst"
 done
@@ -34,7 +34,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 echo "press enter to continue (about to install inside chroot) > " && read
 
 # Install inside chroot.
-arch-chroot /mnt ./chroot.sh
+arch-chroot /mnt /archvm/chroot.sh
 
 echo "press enter to continue (about to display ending) > " && read
 
