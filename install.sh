@@ -11,6 +11,7 @@ mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 
 # Obtain all install scripts
+mkdir -p /mnt/archvm
 for script in chroot post_install setup; do
 	src="https://raw.githubusercontent.com/peterstace/archvm/master/$script.sh"
 	dst="/mnt/archvm/$script"
