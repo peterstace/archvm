@@ -10,6 +10,14 @@ echo "type=83, bootable" | sfdisk --force /dev/sda
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 
+# Obtain all install scripts
+for script in chroot post_install setup; do
+	src="https://raw.githubusercontent.com/peterstace/archvm/master/$script.sh"
+	dst="/mnt/archvm/$script"
+	curl "$src" > "$dst"
+	chmod +x "$dst"
+done
+
 # Install base
 echo '
 ## Australia
@@ -25,8 +33,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 echo "press enter to continue (about to install inside chroot) > " && read
 
 # Install inside chroot.
-curl https://raw.githubusercontent.com/peterstace/archvm/master/chroot.sh > /mnt/chroot.sh
-chmod +x /mnt/chroot.sh
 arch-chroot /mnt ./chroot.sh
 
 echo "press enter to continue (about to display ending) > " && read
