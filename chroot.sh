@@ -14,20 +14,12 @@ echo "
 ::1         localhost
 127.0.1.1   archvm.localdomain archvm" >> /etc/hosts
 
-echo "press enter to continue (about to install extra packages) > " && read
-
 pacman --noconfirm -S fish grub openssh sudo wget
-
-echo "press enter to continue (about to install grub) > " && read
 
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
-echo "press enter to continue (about to set root password) > " && read
-
 echo "root:root" | chpasswd
-
-echo "press enter to continue (about to add user) > " && read
 
 useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd

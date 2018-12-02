@@ -31,17 +31,5 @@ Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo "press enter to continue (about to install inside chroot) > " && read
-
 # Install inside chroot.
 arch-chroot /mnt /archvm/chroot.sh
-
-echo "press enter to continue (about to display ending) > " && read
-
-echo '
-Next steps: 
-- Shutdown the virtual machine by using `shutdown -h now`.
-- Remove the virtual live CD.
-- Restart the machine but do not log in.
-- SSH into the machine using `ssh -p 2222 petsta@localhost`.
-'
