@@ -3,6 +3,8 @@
 set -exo pipefail
 
 dhcpcd
+sleep 30 # wait for network to come online
+
 systemctl enable dhcpcd.service
 systemctl enable sshd.socket
 
