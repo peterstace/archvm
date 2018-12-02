@@ -16,3 +16,7 @@ curl \
 git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 ~/r/dotfiles/link.sh
 ~/r/dotfiles/clone_repos.sh
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+~/.vim/bundle/YouCompleteMe/install.py
