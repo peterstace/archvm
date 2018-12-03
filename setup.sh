@@ -26,3 +26,6 @@ vim +GoInstallBinaries +qall
 # PATH that doesn't exist).
 mkdir -p ~/go/bin
 mkdir -p ~/bin
+
+~/r/gpg/setup.exp 98330AE73AA53A9D
+~/r/gpg/setup.exp D07CC7A07A2C5E49
