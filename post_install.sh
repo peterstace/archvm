@@ -7,7 +7,7 @@ sleep 10 # wait for network to come online
 
 # Install separately due to provider dependencies
 pacman --noconfirm --asdeps -S virtualbox-guest-modules-arch
-pacamn --noconfirm -S virtualbox-guest-utils-nox
+pacman --noconfirm -S virtualbox-guest-utils-nox
 
 # Install remaining packages
 pacman --noconfirm -S \
