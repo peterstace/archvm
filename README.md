@@ -23,9 +23,7 @@ Update the following settings:
 | Setting        | Value                            |
 | ---            | ---                              |
 | Storage        | Downloaded Arch Linux image      |
-| Network        | Forward 8000->8000, 2222->22     |
-| Shared Folders | `~/Downloads` (check Auto-mount) |
-
+| Network        | Forward 8001->8001, 2222->22     |
 
 ## Step 1
 
