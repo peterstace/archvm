@@ -7,6 +7,7 @@ sleep 30 # wait for network to come online
 
 systemctl enable dhcpcd.service
 systemctl enable sshd.socket
+systemctl enable docker.service
 
 pacman --noconfirm -S \
 	aws-cli \

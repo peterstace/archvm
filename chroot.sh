@@ -24,4 +24,5 @@ echo "root:root" | chpasswd
 useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
+gpasswd -a petsta docker
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
