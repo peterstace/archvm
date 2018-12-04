@@ -3,12 +3,13 @@
 set -exo pipefail
 
 dhcpcd
-sleep 30 # wait for network to come online
+sleep 10 # wait for network to come online
 
-systemctl enable dhcpcd.service
-systemctl enable sshd.socket
-systemctl enable docker.service
+# Install separately due to provider dependencies
+pacman --noconfirm --asdeps -S virtualbox-guest-modules-arch
+pacamn --noconfirm -S virtualbox-guest-utils-nox
 
+# Install remaining packages
 pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
@@ -42,3 +43,15 @@ pacman --noconfirm -S \
 	traceroute \
 	unzip \
 	vim
+
+systemctl enable dhcpcd.service
+systemctl enable sshd.socket
+systemctl enable docker.service
+systemctl enable vboxservice.service
+
+# Set up user
+useradd -m -s /usr/bin/fish petsta
+echo "petsta:petsta" | chpasswd
+gpasswd -a petsta wheel
+gpasswd -a petsta docker
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
