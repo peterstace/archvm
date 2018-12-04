@@ -22,6 +22,7 @@ Update the following settings:
 
 | Setting        | Value                            |
 | ---            | ---                              |
+| System         | As many CPUs as allowed          |
 | Storage        | Downloaded Arch Linux image      |
 | Network        | Forward 8000->8000, 2222->22     |
 | Shared Folders | `~/Downloads` (check Auto-mount) |
