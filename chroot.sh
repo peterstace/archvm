@@ -20,9 +20,3 @@ grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "root:root" | chpasswd
-
-useradd -m -s /usr/bin/fish petsta
-echo "petsta:petsta" | chpasswd
-gpasswd -a petsta wheel
-gpasswd -a petsta docker
-echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers

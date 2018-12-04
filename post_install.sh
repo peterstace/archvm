@@ -48,3 +48,10 @@ systemctl enable dhcpcd.service
 systemctl enable sshd.socket
 systemctl enable docker.service
 systemctl enable vboxservice.service
+
+# Set up user
+useradd -m -s /usr/bin/fish petsta
+echo "petsta:petsta" | chpasswd
+gpasswd -a petsta wheel
+gpasswd -a petsta docker
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
