@@ -13,6 +13,9 @@ curl \
 	--data "$payload" \
 	"https://api.github.com/user/keys"
 
+git clone git@github.com:peterstace/gpg.git ~/r/gpg
+~/r/gpg/setup.sh
+
 git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 ~/r/dotfiles/link.sh
 ~/r/dotfiles/clone_repos.sh
@@ -26,5 +29,3 @@ vim +GoInstallBinaries +qall
 # PATH that doesn't exist).
 mkdir -p ~/go/bin
 mkdir -p ~/bin
-
-~/r/gpg/setup.sh
