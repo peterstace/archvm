@@ -3,9 +3,11 @@
 set -exo pipefail
 
 notice() {
+	set +x
 	printf '\e[32m'
 	echo $@
 	printf '\e[0m'
+	set -x
 }
 
 notice "setting up locale"
