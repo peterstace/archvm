@@ -2,15 +2,21 @@
 
 set -exo pipefail
 
-# NTP for time.
+notice() {
+	printf '\e[32m'
+	echo $@
+	printf '\e[0m'
+}
+
+notice "setting up ntp"
 timedatectl set-ntp true
 
-# Set up disk partition.
+notice "partitioning disk"
 echo "type=83, bootable" | sfdisk --force /dev/sda
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 
-# Obtain all install scripts
+notice "fetching install scripts"
 mkdir -p /mnt/archvm
 for script in chroot post_install setup; do
 	src="https://raw.githubusercontent.com/peterstace/archvm/master/$script.sh"
@@ -19,7 +25,7 @@ for script in chroot post_install setup; do
 	chmod +x "$dst"
 done
 
-# Install base
+notice "installing base"
 echo '
 ## Australia
 Server = http://ftp.iinet.net.au/pub/archlinux/$repo/os/$arch
@@ -31,5 +37,5 @@ Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Install inside chroot.
+notice "entering chroot"
 arch-chroot /mnt /archvm/chroot.sh

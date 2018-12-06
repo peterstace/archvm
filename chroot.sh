@@ -2,6 +2,13 @@
 
 set -exo pipefail
 
+notice() {
+	printf '\e[32m'
+	echo $@
+	printf '\e[0m'
+}
+
+notice "setting up locale"
 ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime
 hwclock --systohc
 echo "en_AU.UTF-8 UTF-8" >> /etc/locale.gen
@@ -14,9 +21,11 @@ echo "
 ::1         localhost
 127.0.1.1   archvm.localdomain archvm" >> /etc/hosts
 
+notice "installing grub"
 pacman --noconfirm -S fish grub openssh sudo wget
 
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
+notice "setting up root password"
 echo "root:root" | chpasswd
