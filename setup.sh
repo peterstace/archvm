@@ -13,6 +13,9 @@ curl \
 	--data "$payload" \
 	"https://api.github.com/user/keys"
 
+git clone git@github.com:peterstace/gpg.git ~/r/gpg
+~/r/gpg/setup.sh
+
 dir=$(mktemp -d)
 pushd $dir
 wget "https://github.com/golang-migrate/migrate/releases/download/v3.5.2/migrate.linux-amd64.tar.gz"
@@ -35,5 +38,3 @@ vim +GoInstallBinaries +qall
 # Create dirs inside PATH (so that fish doesn't complain about having stuff in
 # PATH that doesn't exist).
 mkdir -p ~/go/bin
-
-~/r/gpg/setup.sh
