@@ -2,14 +2,25 @@
 
 set -exo pipefail
 
+notice() {
+	set +x
+	printf '\e[32m'
+	echo $@
+	printf '\e[0m'
+	set -x
+}
+
+notice "setting up initial network connectivity"
 dhcpcd
 sleep 10 # wait for network to come online
 
 # Install separately due to provider dependencies
+notice "installing guest modules"
 pacman --noconfirm --asdeps -S virtualbox-guest-modules-arch
 pacman --noconfirm -S virtualbox-guest-utils-nox
 
 # Install remaining packages
+notice "installing packages"
 pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
@@ -44,12 +55,13 @@ pacman --noconfirm -S \
 	unzip \
 	vim
 
+notice "enabling services"
 systemctl enable dhcpcd.service
 systemctl enable sshd.socket
 systemctl enable docker.service
 systemctl enable vboxservice.service
 
-# Set up user
+notice "setting up user"
 useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
