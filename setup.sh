@@ -26,6 +26,9 @@ fi
 mv migrate.linux-amd64 ~/bin/migrate
 popd
 
+GOPATH="$HOME/go" go get github.com/golang/dep
+GOPATH="$HOME/go" go install github.com/golang/dep/...
+
 git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 ~/r/dotfiles/link.sh
 ~/r/dotfiles/clone_repos.sh
