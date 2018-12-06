@@ -24,7 +24,7 @@ Update the following settings:
 | ---            | ---                              |
 | System         | As many CPUs as allowed          |
 | Storage        | Downloaded Arch Linux image      |
-| Network        | Forward 8001->8001, 2222->22     |
+| Network        | Forward 8000->8000, 22DD->22     |
 
 ## Step 1
 
