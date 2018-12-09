@@ -41,16 +41,16 @@ notice "installing dep"
 GOPATH="$HOME/go" go get github.com/golang/dep
 GOPATH="$HOME/go" go install github.com/golang/dep/...
 
-notice "installing personal Go binaries"
-GOPATH="$HOME/go" go install github.com/peterstace/dauntless/...
-GOPATH="$HOME/go" go install github.com/peterstace/task/...
-
 notice "setting up dotfiles"
 git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 ~/r/dotfiles/link.sh
 
 notice "cloning repos"
 ~/r/dotfiles/clone_repos.sh
+
+notice "installing personal Go binaries"
+GOPATH="$HOME/go" go install github.com/peterstace/dauntless/...
+GOPATH="$HOME/go" go install github.com/peterstace/task/...
 
 notice "installing vim plugins"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
