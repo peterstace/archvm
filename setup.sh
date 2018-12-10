@@ -26,6 +26,14 @@ notice "installing GPG keys"
 git clone git@github.com:peterstace/gpg.git ~/r/gpg
 ~/r/gpg/setup.sh
 
+notice "installing pspg"
+tmp=$(mktemp -d)
+pushd "$tmp"
+git clone https://aur.archlinux.org/pspg-git.git
+cd pspg-git
+makepkg --install --noconfirm
+popd
+
 notice "installing migrate"
 dir=$(mktemp -d)
 pushd $dir
