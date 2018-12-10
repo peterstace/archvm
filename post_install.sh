@@ -61,6 +61,13 @@ systemctl enable sshd.socket
 systemctl enable docker.service
 systemctl enable vboxservice.service
 
+notice "enabling swap"
+fallocate -l 1024M /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+
 notice "setting up user"
 useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd
