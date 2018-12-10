@@ -15,16 +15,16 @@ Create a new virtual machine using the following details:
 | Name    | `archvm_YYYYMMDD`                       |
 | Type    | Linux                                   |
 | Version | Arch Linux (64-bit)                     |
-| Memory  | 4096 MB                                 |
+| Memory  | 1024 MB                                 |
 | Disk    | New, VDI, Dynamic, default name, 100 GB |
 
 Update the following settings:
 
-| Setting        | Value                            |
-| ---            | ---                              |
-| System         | As many CPUs as allowed          |
-| Storage        | Downloaded Arch Linux image      |
-| Network        | Forward 8000->8000, 22DD->22     |
+| Setting | Value                        |
+| ---     | ---                          |
+| System  | 1 CPU                        |
+| Storage | Downloaded Arch Linux image  |
+| Network | Forward 8000->8000, 22DD->22 |
 
 ## Step 1
 
