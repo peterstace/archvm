@@ -52,7 +52,7 @@ reboot
 Don't login. Instead, SSH into the machine using the following command:
 
 ```
-ssh -p 2222 petsta@localhost
+ssh -p 22XX petsta@localhost
 ```
 
 Then run the following command:
