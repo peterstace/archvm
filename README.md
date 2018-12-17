@@ -25,6 +25,7 @@ Update the following settings:
 | System  | 1 CPU                        |
 | Storage | Downloaded Arch Linux image  |
 | Network | Forward 8000->8000, 22DD->22 |
+| Audio   | Disable audio output         |
 
 ## Step 1
 
