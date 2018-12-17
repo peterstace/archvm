@@ -10,6 +10,18 @@ notice() {
 	set -x
 }
 
+#
+# Requires interaction:
+#
+
+notice "installing pspg"
+tmp=$(mktemp -d)
+pushd "$tmp"
+git clone https://aur.archlinux.org/pspg-git.git
+cd pspg-git
+makepkg --install --noconfirm
+popd
+
 notice "setting up github keys"
 ssh-keygen -N "" -f "$HOME/.ssh/id_rsa"
 set +x
@@ -33,19 +45,15 @@ git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 notice "cloning repos"
 ~/r/dotfiles/clone_repos.sh
 
+#
+# Doesn't require interaction.
+#
+
 notice "installing vim plugins"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 ~/.vim/bundle/YouCompleteMe/install.py
 vim +GoInstallBinaries +qall
-
-notice "installing pspg"
-tmp=$(mktemp -d)
-pushd "$tmp"
-git clone https://aur.archlinux.org/pspg-git.git
-cd pspg-git
-makepkg --install --noconfirm
-popd
 
 notice "installing migrate"
 dir=$(mktemp -d)
@@ -67,7 +75,6 @@ GOPATH="$HOME/go" go install github.com/peterstace/dauntless/...
 GOPATH="$HOME/go" go install github.com/peterstace/task/...
 GOPATH="$HOME/go" go install github.com/peterstace/cliscreensaver/...
 
-notice "installing publig Go binaries"
+notice "installing public Go binaries"
 GOPATH="$HOME/go" go get github.com/stamblerre/gocode/...
 GOPATH="$HOME/go" go install github.com/stamblerre/gocode/...
-
