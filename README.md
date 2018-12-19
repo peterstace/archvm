@@ -61,3 +61,11 @@ Then run the following command:
 ```
 /archvm/setup.sh
 ```
+
+## Step 4
+
+Run the following command on the host (substituting the current date):
+
+```
+VBoxManage modifyvm "archvm_YYYYMMDD" --natdnshostresolver1 on
+```
