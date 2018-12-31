@@ -20,12 +20,12 @@ Create a new virtual machine using the following details:
 
 Update the following settings:
 
-| Setting | Value                        |
-| ---     | ---                          |
-| System  | 1 CPU                        |
-| Storage | Downloaded Arch Linux image  |
-| Network | Forward 8000->8000, 22DD->22 |
-| Audio   | Disable audio output         |
+| Setting | Value                                             |
+| ---     | ---                                               |
+| System  | 1 CPU                                             |
+| Storage | Downloaded Arch Linux image                       |
+| Network | Forward 8000->8000, 22DD->22                      |
+| Audio   | Disable audio output, and use 'Null Audio Driver' |
 
 ## Step 1
 
