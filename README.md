@@ -45,12 +45,20 @@ Run the following commands:
 
 ```
 /archvm/post_install.sh
-reboot
+shutdown -h now
 ```
 
 ## Step 3
 
-Don't login. Instead, SSH into the machine using the following command:
+Run the following command on the host (substituting the current date):
+
+```
+VBoxManage modifyvm "archvm_YYYYMMDD" --natdnshostresolver1 on
+```
+
+## Step 4
+
+Start the VM, but don't login. Instead, SSH into the machine using the following command:
 
 ```
 ssh -p 22XX petsta@localhost
@@ -60,12 +68,4 @@ Then run the following command:
 
 ```
 /archvm/setup.sh
-```
-
-## Step 4
-
-Run the following command on the host (substituting the current date):
-
-```
-VBoxManage modifyvm "archvm_YYYYMMDD" --natdnshostresolver1 on
 ```
