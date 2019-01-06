@@ -49,6 +49,10 @@ notice "cloning repos"
 # Doesn't require interaction.
 #
 
+notice "setting up docker fish completions"
+mkdir -p ~/.config/fish/completions
+ln -sf /usr/share/fish/vendor_completions.d/docker.fish ~/.config/fish/completions/docker.fish
+
 notice "installing vim plugins"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
