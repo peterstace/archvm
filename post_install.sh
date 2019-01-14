@@ -40,6 +40,7 @@ pacman --noconfirm -S \
 	go \
 	hdparm \
 	htop \
+	hub \
 	jq \
 	ncdu \
 	parallel \
