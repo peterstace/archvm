@@ -10,9 +10,6 @@ notice() {
 	set -x
 }
 
-notice "setting up ntp"
-timedatectl set-ntp true
-
 notice "partitioning disk"
 echo "type=83, bootable" | sfdisk --force /dev/sda
 mkfs.ext4 /dev/sda1
