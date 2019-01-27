@@ -45,8 +45,8 @@ git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 notice "cloning repos"
 ~/r/dotfiles/clone_repos.sh
 
-notice "logging into docker"
-pass show personal/hub.docker.com | head -n1 | docker login --username peterstace --password-stdin
+# notice "logging into docker"
+# pass show personal/hub.docker.com | head -n1 | docker login --username peterstace --password-stdin
 
 #
 # Doesn't require interaction.
