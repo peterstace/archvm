@@ -62,17 +62,6 @@ vim +PlugInstall +qall
 ~/.vim/plugged/YouCompleteMe/install.py
 vim +GoInstallBinaries +qall
 
-notice "installing migrate"
-dir=$(mktemp -d)
-pushd $dir
-wget "https://github.com/golang-migrate/migrate/releases/download/v3.5.2/migrate.linux-amd64.tar.gz"
-tar -xvzf *.tar.gz
-if [ ! -e ~/bin ]; then
-    mkdir ~/bin
-fi
-mv migrate.linux-amd64 ~/bin/migrate
-popd
-
 notice "installing dep"
 GOPATH="$HOME/go" go get github.com/golang/dep
 GOPATH="$HOME/go" go install github.com/golang/dep/...
