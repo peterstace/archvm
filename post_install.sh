@@ -43,6 +43,7 @@ pacman --noconfirm -S \
 	hub \
 	jq \
 	ncdu \
+	octave \
 	parallel \
 	pass \
 	postgresql \
