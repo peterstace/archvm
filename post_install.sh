@@ -24,6 +24,7 @@ notice "installing packages"
 pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
+	bc \
 	clang \
 	cmake \
 	diff-so-fancy \
