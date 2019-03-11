@@ -52,6 +52,7 @@ pacman --noconfirm -S \
 	python2-setuptools \
 	python3 \
 	python-pip \
+	python2-pip \
 	terraform \
 	the_silver_searcher \
 	time \
