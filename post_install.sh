@@ -51,6 +51,7 @@ pacman --noconfirm -S \
 	python2 \
 	python2-setuptools \
 	python3 \
+	terraform \
 	the_silver_searcher \
 	time \
 	tmux \
