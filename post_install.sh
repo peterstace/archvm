@@ -35,6 +35,7 @@ pacman --noconfirm -S \
 	expect \
 	fzf \
 	genius \
+	geos \
 	git \
 	gnupg \
 	gnuplot \
