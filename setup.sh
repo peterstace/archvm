@@ -38,6 +38,12 @@ notice "installing GPG keys"
 git clone git@github.com:peterstace/gpg.git ~/r/gpg
 ~/r/gpg/setup.sh
 
+https://aur.archlinux.org/packages/kubectl-bin/
+
+#
+# Doesn't require interaction.
+#
+
 notice "setting up dotfiles"
 git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 ~/r/dotfiles/link.sh
@@ -45,12 +51,19 @@ git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 notice "cloning repos"
 ~/r/dotfiles/clone_repos.sh
 
-# notice "logging into docker"
-# pass show personal/hub.docker.com | head -n1 | docker login --username peterstace --password-stdin
-
-#
-# Doesn't require interaction.
-#
+notice "setting up kubectl"
+mkdir -p $HOME/aur
+git clone https://aur.archlinux.org/kubectl-bin.git $HOME/aur/kubectl-bin
+pushd $HOME/aur/kubectl-bin
+makepkg -i
+popd
+mkdir -p $HOME/.config/fish/completions
+pushd $HOME/.config/fish
+git clone https://github.com/evanlucas/fish-kubectl-completions
+ln -s \
+	$HOME/.config/fish/fish-kubectl-completions/completions/kubectl.fish \
+	$HOME/.config/fish/completions/kubectl.fish
+popd
 
 notice "setting up docker fish completions"
 mkdir -p ~/.config/fish/completions
