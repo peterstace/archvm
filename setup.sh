@@ -38,8 +38,6 @@ notice "installing GPG keys"
 git clone git@github.com:peterstace/gpg.git ~/r/gpg
 ~/r/gpg/setup.sh
 
-https://aur.archlinux.org/packages/kubectl-bin/
-
 #
 # Doesn't require interaction.
 #
