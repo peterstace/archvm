@@ -48,6 +48,7 @@ pacman --noconfirm -S \
 	octave \
 	parallel \
 	pass \
+	postgis \
 	postgresql \
 	python2 \
 	python2-setuptools \
