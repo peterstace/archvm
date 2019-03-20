@@ -53,7 +53,7 @@ notice "setting up kubectl"
 mkdir -p $HOME/aur
 git clone https://aur.archlinux.org/kubectl-bin.git $HOME/aur/kubectl-bin
 pushd $HOME/aur/kubectl-bin
-makepkg -i
+makepkg --install --noconfirm
 popd
 mkdir -p $HOME/.config/fish/completions
 pushd $HOME/.config/fish
