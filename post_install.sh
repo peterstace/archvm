@@ -50,11 +50,12 @@ pacman --noconfirm -S \
 	pass \
 	postgis \
 	postgresql \
+	python-pip \
 	python2 \
+	python2-pip \
 	python2-setuptools \
 	python3 \
-	python-pip \
-	python2-pip \
+	rust \
 	terraform \
 	the_silver_searcher \
 	time \
