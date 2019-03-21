@@ -88,3 +88,6 @@ GOPATH="$HOME/go" go get github.com/kardianos/govendor/...
 
 notice "installing rust binaries"
 cargo install ktmpl
+
+notice "installing python binaries"
+pip2 install --user aws-adfs
