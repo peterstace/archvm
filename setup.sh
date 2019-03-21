@@ -85,3 +85,6 @@ GOPATH="$HOME/go" go install github.com/peterstace/csvfmt/...
 
 notice "installing public Go binaries"
 GOPATH="$HOME/go" go get github.com/kardianos/govendor/...
+
+notice "installing rust binaries"
+cargo install ktmpl
