@@ -14,6 +14,10 @@ notice "setting up initial network connectivity"
 dhcpcd
 sleep 10 # wait for network to come online
 
+notice "setting shutdown timeout"
+echo "DefaultTimeoutStartSec=30s" >> /etc/systemd/system.conf
+echo "DefaultTimeoutStopSec=30s" >> /etc/systemd/system.conf
+
 # Install separately due to provider dependencies
 notice "installing guest modules"
 pacman --noconfirm --asdeps -S virtualbox-guest-modules-arch
