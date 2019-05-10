@@ -50,6 +50,7 @@ pacman --noconfirm -S \
 	jq \
 	ncdu \
 	octave \
+	opencv \
 	parallel \
 	pass \
 	postgis \
