@@ -44,6 +44,7 @@ pacman --noconfirm -S \
 	gnupg \
 	gnuplot \
 	go \
+	hdf5 \
 	hdparm \
 	htop \
 	hub \
@@ -51,6 +52,7 @@ pacman --noconfirm -S \
 	ncdu \
 	octave \
 	opencv \
+	opencv-samples \
 	parallel \
 	pass \
 	postgis \
