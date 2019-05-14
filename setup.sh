@@ -22,6 +22,15 @@ cd pspg-git
 makepkg --install --noconfirm
 popd
 
+notice "installing opencv3-opt"
+tmp=$(mktemp -d)
+pushd "$tmp"
+git clone https://aur.archlinux.org/opencv3-opt.git
+cd opencv3-opt
+makepkg --install --noconfirm
+popd
+sudo ln -sf /opt/opencv3/lib/pkgconfig/opencv.pc /usr/lib/pkgconfig/opencv.pc
+
 notice "setting up github keys"
 ssh-keygen -N "" -f "$HOME/.ssh/id_rsa"
 set +x
