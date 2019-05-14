@@ -35,35 +35,40 @@ pacman --noconfirm -S \
 	docker \
 	docker-compose \
 	dos2unix \
+	eigen \
 	exa \
 	expect \
 	fzf \
 	genius \
 	geos \
 	git \
+	glew \
 	gnupg \
 	gnuplot \
 	go \
+	gtk3 \
 	hdf5 \
 	hdparm \
 	htop \
 	hub \
 	jq \
+	lapacke \
 	ncdu \
 	octave \
 	opencv \
-	swig \
 	opencv-samples \
 	parallel \
 	pass \
 	postgis \
 	postgresql \
+	python-numpy \
 	python-pip \
 	python2 \
 	python2-pip \
 	python2-setuptools \
 	python3 \
 	rust \
+	swig \
 	terraform \
 	the_silver_searcher \
 	time \
@@ -71,6 +76,7 @@ pacman --noconfirm -S \
 	traceroute \
 	unzip \
 	vim
+	vtk \
 
 notice "enabling services"
 systemctl enable dhcpcd.service
