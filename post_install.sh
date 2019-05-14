@@ -75,8 +75,8 @@ pacman --noconfirm -S \
 	tmux \
 	traceroute \
 	unzip \
-	vim
-	vtk \
+	vim \
+	vtk
 
 notice "enabling services"
 systemctl enable dhcpcd.service
