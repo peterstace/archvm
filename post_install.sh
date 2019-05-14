@@ -52,6 +52,7 @@ pacman --noconfirm -S \
 	ncdu \
 	octave \
 	opencv \
+	swig \
 	opencv-samples \
 	parallel \
 	pass \
