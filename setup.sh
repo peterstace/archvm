@@ -31,6 +31,14 @@ makepkg --install --noconfirm
 popd
 sudo ln -sf /opt/opencv3/lib/pkgconfig/opencv.pc /usr/lib/pkgconfig/opencv.pc
 
+notice "installing jo"
+tmp=$(mktemp -d)
+pushd "$tmp"
+git clone https://aur.archlinux.org/jo.git
+cd jo
+makepkg --install --noconfirm
+popd
+
 notice "setting up github keys"
 ssh-keygen -N "" -f "$HOME/.ssh/id_rsa"
 set +x
