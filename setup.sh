@@ -22,15 +22,6 @@ cd pspg-git
 makepkg --install --noconfirm
 popd
 
-notice "installing opencv3-opt"
-tmp=$(mktemp -d)
-pushd "$tmp"
-git clone https://aur.archlinux.org/opencv3-opt.git
-cd opencv3-opt
-makepkg --install --noconfirm
-popd
-sudo ln -sf /opt/opencv3/lib/pkgconfig/opencv.pc /usr/lib/pkgconfig/opencv.pc
-
 notice "installing jo"
 tmp=$(mktemp -d)
 pushd "$tmp"
@@ -66,20 +57,6 @@ git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 notice "cloning repos"
 ~/r/dotfiles/clone_repos.sh
 
-notice "setting up kubectl"
-mkdir -p $HOME/aur
-git clone https://aur.archlinux.org/kubectl-bin.git $HOME/aur/kubectl-bin
-pushd $HOME/aur/kubectl-bin
-makepkg --install --noconfirm
-popd
-mkdir -p $HOME/.config/fish/completions
-pushd $HOME/.config/fish
-git clone https://github.com/evanlucas/fish-kubectl-completions
-ln -s \
-	$HOME/.config/fish/fish-kubectl-completions/completions/kubectl.fish \
-	$HOME/.config/fish/completions/kubectl.fish
-popd
-
 notice "setting up docker fish completions"
 mkdir -p ~/.config/fish/completions
 ln -sf /usr/share/fish/vendor_completions.d/docker.fish ~/.config/fish/completions/docker.fish
@@ -96,17 +73,6 @@ GOPATH="$HOME/go" go get github.com/golang/dep/...
 notice "installing personal Go binaries (already cloned)"
 GOPATH="$HOME/go" go install github.com/peterstace/dauntless/...
 GOPATH="$HOME/go" go install github.com/peterstace/task/...
-GOPATH="$HOME/go" go install github.com/peterstace/cliscreensaver/...
-GOPATH="$HOME/go" go install github.com/peterstace/abacus/...
 GOPATH="$HOME/go" go install github.com/peterstace/csvfmt/...
 GOPATH="$HOME/go" go install github.com/peterstace/tmuxssel/...
 GOPATH="$HOME/go" go install github.com/peterstace/vmbridge/...
-
-notice "installing public Go binaries"
-GOPATH="$HOME/go" go get github.com/kardianos/govendor/...
-
-notice "installing rust binaries"
-cargo install ktmpl
-
-notice "installing python binaries"
-pip2 install --user aws-adfs
