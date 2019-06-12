@@ -66,6 +66,9 @@ pacman --noconfirm -S \
 	unzip \
 	vim
 
+notice "setting up DNS"
+echo "static domain_name_servers=8.8.8.8 8.8.4.4" >> /etc/dhcpcd.conf
+
 notice "enabling services"
 systemctl enable dhcpcd.service
 systemctl enable sshd.socket
