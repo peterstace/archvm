@@ -64,7 +64,8 @@ pacman --noconfirm -S \
 	tmux \
 	traceroute \
 	unzip \
-	vim
+	vim \
+	yq
 
 notice "setting up DNS"
 echo "static domain_name_servers=8.8.8.8 8.8.4.4" >> /etc/dhcpcd.conf
