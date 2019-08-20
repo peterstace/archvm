@@ -33,9 +33,6 @@ Server = http://ftp.swin.edu.au/archlinux/$repo/os/$arch
 Server = http://archlinux.melbourneitmirror.net/$repo/os/$arch
 Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 ' > /etc/pacman.d/mirrorlist
-echo '
-DisableDownloadTimeout
-' >> /etc/pacman.conf
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
