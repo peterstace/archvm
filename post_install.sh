@@ -90,3 +90,4 @@ echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 gpasswd -a petsta docker
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+echo "Defaults passwd_timeout=0" >> /etc/sudoers
