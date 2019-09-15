@@ -10,22 +10,22 @@ Ensure you're running the latest version of Virtual Box.
 
 Create a new virtual machine using the following details:
 
-| Setting | Value                                   |
-| ---     | ---                                     |
-| Name    | `archvm_YYYYMMDD`                       |
-| Type    | Linux                                   |
-| Version | Arch Linux (64-bit)                     |
-| Memory  | 1024 MB                                 |
-| Disk    | New, VDI, Dynamic, default name, 100 GB |
+| Setting | Value                                                    |
+| ---     | ---                                                      |
+| Name    | `archvm_YYYYMMDD`                                        |
+| Type    | Linux                                                    |
+| Version | Arch Linux (64-bit)                                      |
+| Memory  | 1024 MB (16384MB for work)                               |
+| Disk    | New, VDI, Dynamic, default name, 100 GB (250GB for work) |
 
 Update the following settings:
 
-| Setting | Value                                             |
-| ---     | ---                                               |
-| System  | 1 CPU                                             |
-| Storage | Downloaded Arch Linux image                       |
-| Network | Forward 8000->8000, 22DD->22                      |
-| Audio   | Disable audio output, and use 'Null Audio Driver' |
+| Setting | Value                                    |
+| ---     | ---                                      |
+| System  | 1 CPU (6 for work)                       |
+| Storage | Downloaded Arch Linux image              |
+| Audio   | Uncheck "Enable Audio"                   |
+| Network | Forward 22DD->22, 8080, 8081, 8000, 8001 |
 
 ## Step 1
 
@@ -46,14 +46,6 @@ Run the following commands:
 ```
 /archvm/post_install.sh
 shutdown -h now
-```
-
-## Step 3
-
-Run the following command on the host (substituting the current date):
-
-```
-VBoxManage modifyvm "archvm_YYYYMMDD" --natdnshostresolver1 on
 ```
 
 ## Step 4
