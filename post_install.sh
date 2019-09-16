@@ -28,6 +28,7 @@ notice "installing packages"
 pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
+	bat \
 	bc \
 	clang \
 	cmake \
