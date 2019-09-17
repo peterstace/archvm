@@ -54,6 +54,7 @@ pacman --noconfirm -S \
 	parallel \
 	pass \
 	postgresql \
+	proj \
 	python-pip \
 	python2 \
 	python2-pip \
