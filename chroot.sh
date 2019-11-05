@@ -24,9 +24,9 @@ echo "
 127.0.1.1   archvm.localdomain archvm" >> /etc/hosts
 
 notice "installing grub"
-pacman --noconfirm -S fish grub openssh sudo wget
+pacman --noconfirm -S fish grub efibootmgr openssh sudo wget
 
-grub-install --target=i386-pc /dev/sda
+grub-install /dev/sda --target=x86_64-efi --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
 
 notice "setting up root password"

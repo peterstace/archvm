@@ -11,9 +11,15 @@ notice() {
 }
 
 notice "partitioning disk"
-echo "type=83, bootable" | sfdisk --force /dev/sda
-mkfs.ext4 /dev/sda1
-mount /dev/sda1 /mnt
+parted /dev/sda mklabel gpt
+parted /dev/sda mkpart primary fat32 2048s 1050624s
+parted /dev/sda set 1 boot on
+parted /dev/sda mkpart primary ext4 1052672s 100%
+mkfs -t fat /dev/sda1
+mkfs -t ext4 /dev/sda2
+mount /dev/sda2 /mnt
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot/
 
 notice "fetching install scripts"
 mkdir -p /mnt/archvm
@@ -37,6 +43,7 @@ sed -i "$(echo $(sed -n '/\[options\]/=' /etc/pacman.conf) + 1 | bc)iDisableDown
 
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U -p /mnt >> /mnt/etc/fstab
 
 notice "entering chroot"
 arch-chroot /mnt /archvm/chroot.sh
