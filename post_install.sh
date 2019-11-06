@@ -54,6 +54,7 @@ pacman --noconfirm -S \
 	parallel \
 	pass \
 	postgresql \
+	proj \
 	python-pip \
 	python2 \
 	python2-pip \
@@ -79,7 +80,7 @@ systemctl enable docker.service
 systemctl enable vboxservice.service
 
 notice "enabling swap"
-fallocate -l 4096M /swapfile
+fallocate -l 16G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
@@ -91,3 +92,4 @@ echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 gpasswd -a petsta docker
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+echo "Defaults passwd_timeout=0" >> /etc/sudoers
