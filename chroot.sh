@@ -29,8 +29,5 @@ pacman --noconfirm -S fish grub efibootmgr openssh sudo wget
 grub-install /dev/sda --target=x86_64-efi --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
 
-sudo mkdir -p /boot/EFI/BOOT/
-sudo cp /boot/EFI/arch/grubx64.efi /boot/EFI/BOOT/BOOTX64.EFI
-
 notice "setting up root password"
 echo "root:root" | chpasswd
