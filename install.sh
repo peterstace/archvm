@@ -42,8 +42,8 @@ Server = http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch
 sed -i "$(echo $(sed -n '/\[options\]/=' /etc/pacman.conf) + 1 | bc)iDisableDownloadTimeout" /etc/pacman.conf
 
 pacstrap /mnt base
+genfstab -U /mnt >> /mnt/etc/fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
-genfstab -U -p /mnt/boot >> /mnt/etc/fstab
 
 notice "entering chroot"
 arch-chroot /mnt /archvm/chroot.sh
