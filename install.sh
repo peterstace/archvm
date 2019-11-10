@@ -43,7 +43,6 @@ sed -i "$(echo $(sed -n '/\[options\]/=' /etc/pacman.conf) + 1 | bc)iDisableDown
 
 pacstrap /mnt base
 genfstab -U -p /mnt >> /mnt/etc/fstab
-genfstab -U -p /mnt/boot >> /mnt/etc/fstab
 
 notice "entering chroot"
 arch-chroot /mnt /archvm/chroot.sh
