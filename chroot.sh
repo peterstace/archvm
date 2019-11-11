@@ -24,7 +24,7 @@ echo "
 127.0.1.1   archvm.localdomain archvm" >> /etc/hosts
 
 notice "installing grub"
-pacman --noconfirm -S fish grub openssh sudo wget
+pacman --noconfirm -S fish grub openssh sudo wget dhcpcd
 
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
