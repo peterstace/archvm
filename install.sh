@@ -11,7 +11,9 @@ notice() {
 }
 
 notice "partitioning disk"
-echo "type=83, bootable" | sfdisk --force /dev/sda
+parted /dev/sda mklabel msdos
+parted /dev/sda mkpart primary ext4 2048s 100%
+parted /dev/sda set 1 boot on
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 
