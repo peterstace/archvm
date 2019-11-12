@@ -47,6 +47,7 @@ pacman --noconfirm -S \
 	hdparm \
 	htop \
 	hub \
+	inetutils \
 	jq \
 	lapacke \
 	ncdu \
