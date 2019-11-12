@@ -75,7 +75,7 @@ echo "static domain_name_servers=8.8.8.8 8.8.4.4" >> /etc/dhcpcd.conf
 
 notice "enabling services"
 systemctl enable dhcpcd.service
-systemctl enable sshd.socket
+systemctl enable sshd.service
 systemctl enable docker.service
 systemctl enable vboxservice.service
 
