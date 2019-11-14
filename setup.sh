@@ -30,6 +30,23 @@ cd jo
 makepkg --install --noconfirm
 popd
 
+notice "installing up kubectl"
+tmp=$(mktemp -d)
+pushd "$tmp"
+git clone https://aur.archlinux.org/kubectl-bin.git
+pushd cd kubectl-bin
+makepkg --install --noconfirm
+popd
+mkdir -p $HOME/.config/fish/completions
+pushd $HOME/.config/fish
+if [ ! -e "$HOME/.config/fish/fish-kubectl-completions" ]; then
+	git clone https://github.com/evanlucas/fish-kubectl-completions
+	ln -s \
+		$HOME/.config/fish/fish-kubectl-completions/completions/kubectl.fish \
+		$HOME/.config/fish/completions/kubectl.fish
+fi
+popd
+
 notice "setting up github keys"
 ssh-keygen -N "" -f "$HOME/.ssh/id_rsa"
 set +x
