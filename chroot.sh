@@ -21,7 +21,8 @@ echo "archvm_$(date +%Y%m%d)" > /etc/hostname
 echo "
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   archvm.localdomain archvm" >> /etc/hosts
+127.0.1.1   archvm.localdomain archvm
+10.0.2.2    vmhost" >> /etc/hosts
 
 notice "installing grub"
 pacman --noconfirm -S fish grub openssh sudo wget dhcpcd
