@@ -50,6 +50,7 @@ pacman --noconfirm -S \
 	inetutils \
 	jq \
 	lapacke \
+	man \
 	ncdu \
 	octave \
 	parallel \
