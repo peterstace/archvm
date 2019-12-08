@@ -30,6 +30,7 @@ pacman --noconfirm -S \
 	base-devel \
 	bat \
 	bc \
+	bind-tools \
 	clang \
 	cmake \
 	diff-so-fancy \
