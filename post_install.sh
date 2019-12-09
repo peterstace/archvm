@@ -63,6 +63,7 @@ pacman --noconfirm -S \
 	python2-pip \
 	python2-setuptools \
 	python3 \
+	ripgrep \
 	rust \
 	the_silver_searcher \
 	time \
