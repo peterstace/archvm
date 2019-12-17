@@ -14,6 +14,14 @@ notice() {
 # Requires interaction:
 #
 
+notice "installing jid"
+tmp=$(mktemp -d)
+pushd "$tmp"
+git clone https://aur.archlinux.org/jid.git
+cd jid
+makepkg --install --noconfirm
+popd
+
 notice "installing pspg"
 tmp=$(mktemp -d)
 pushd "$tmp"
