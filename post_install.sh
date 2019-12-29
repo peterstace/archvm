@@ -45,6 +45,7 @@ pacman --noconfirm -S \
 	gnupg \
 	gnuplot \
 	go \
+	graphviz \
 	hdparm \
 	htop \
 	hub \
