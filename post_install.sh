@@ -74,7 +74,8 @@ pacman --noconfirm -S \
 	vim \
 	yq \
 	zip \
-	zsh
+	zsh \
+	zsh-completions
 
 notice "setting up DNS"
 echo "static domain_name_servers=8.8.8.8 8.8.4.4" >> /etc/dhcpcd.conf
