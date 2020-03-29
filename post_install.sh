@@ -28,6 +28,7 @@ notice "installing packages"
 pacman --noconfirm -S \
 	aws-cli \
 	base-devel \
+	bash-completion \
 	bat \
 	bc \
 	bind-tools \
