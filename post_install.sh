@@ -54,6 +54,7 @@ pacman --noconfirm -S \
 	jq \
 	lapacke \
 	man \
+	man-pages \
 	ncdu \
 	octave \
 	parallel \
