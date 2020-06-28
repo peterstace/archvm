@@ -96,7 +96,7 @@ swapon /swapfile
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 
 notice "setting up user"
-useradd -m -s /usr/bin/bash petsta
+useradd -m -s /usr/bin/fish petsta
 echo "petsta:petsta" | chpasswd
 gpasswd -a petsta wheel
 gpasswd -a petsta docker
