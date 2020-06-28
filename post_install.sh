@@ -20,7 +20,6 @@ echo "DefaultTimeoutStopSec=30s" >> /etc/systemd/system.conf
 
 # Install separately due to provider dependencies
 notice "installing guest modules"
-pacman --noconfirm --asdeps -S virtualbox-guest-modules-arch
 pacman --noconfirm -S virtualbox-guest-utils-nox
 
 # Install remaining packages
