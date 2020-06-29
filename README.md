@@ -33,6 +33,8 @@ Start the VM then run the following commands:
 
 ```
 loadkeys dvorak
+echo DNSSEC=false >> /etc/systemd/resolved.conf
+systemctl restart systemd-resolved.service
 curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bash
 shutdown -h now
 ```

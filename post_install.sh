@@ -10,6 +10,11 @@ notice() {
 	set -x
 }
 
+notice "setting up DNS"
+echo DNSSEC=false >> /etc/systemd/resolved.conf
+systemctl restart systemd-resolved.service
+sleep 10 # wait for restart
+
 notice "setting up initial network connectivity"
 dhcpcd
 sleep 10 # wait for network to come online
