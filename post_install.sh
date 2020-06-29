@@ -88,7 +88,7 @@ systemctl enable docker.service
 systemctl enable vboxservice.service
 
 notice "enabling swap"
-dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
+dd if=/dev/zero of=/swapfile bs=1M count=16384 status=progress
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
