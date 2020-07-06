@@ -92,6 +92,9 @@ systemctl enable sshd.service
 systemctl enable docker.service
 systemctl enable vboxservice.service
 
+notice "setting up NPT"
+timedatectl set-npt 1
+
 notice "enabling swap"
 dd if=/dev/zero of=/swapfile bs=1M count=16384 status=progress
 chmod 600 /swapfile
