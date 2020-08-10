@@ -56,6 +56,7 @@ pacman --noconfirm -S \
 	hub \
 	inetutils \
 	jq \
+	kustomize \
 	lapacke \
 	man \
 	man-pages \
