@@ -89,7 +89,6 @@ ln -sf /usr/share/fish/vendor_completions.d/docker.fish ~/.config/fish/completio
 notice "installing vim plugins"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
-~/.vim/plugged/YouCompleteMe/install.py
 vim +GoInstallBinaries +qall
 
 notice "installing dep"
