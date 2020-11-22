@@ -50,7 +50,7 @@ Run the following commands:
 shutdown -h now
 ```
 
-## Step 4
+## Step 3
 
 Start the VM, but don't login. Instead, SSH into the machine using the following command:
 
