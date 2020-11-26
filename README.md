@@ -20,12 +20,12 @@ Create a new virtual machine using the following details:
 
 Update the following settings:
 
-| Setting | Value                                    |
-| ---     | ---                                      |
-| System  | 1 CPU (4 for work)                       |
-| Storage | Downloaded Arch Linux image              |
-| Audio   | Uncheck "Enable Audio"                   |
-| Network | Forward 22DD->22, 8080, 8081, 8000, 8001 |
+| Setting | Value                                           |
+| ---     | ---                                             |
+| System  | 1 CPU (4 for work)                              |
+| Storage | Downloaded Arch Linux image                     |
+| Audio   | Uncheck "Enable Audio"                          |
+| Network | Forward 22DD->22, 25499, 8080, 8081, 8000, 8001 |
 
 ## Step 1
 
