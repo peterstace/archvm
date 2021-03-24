@@ -76,7 +76,7 @@ vim +PlugInstall +qall
 vim +GoInstallBinaries +qall
 
 notice "installing personal Go binaries (already cloned)"
-for prog in csvfmt dauntless task tmuxssel vmbridge dbconnmgr; do
+for prog in csvfmt dauntless task tmuxssel vmbridge dbconnmgr luca; do
 	pushd $HOME/go/src/github.com/peterstace/$prog
 	go install ./...
 	popd
