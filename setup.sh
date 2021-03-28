@@ -64,7 +64,7 @@ git clone git@github.com:peterstace/dotfiles.git ~/r/dotfiles
 ~/r/dotfiles/link.sh
 
 notice "cloning repos"
-~/r/dotfiles/clone_repos.sh
+~/r/dotfiles/scripts/clone_repos.sh
 
 notice "setting up docker fish completions"
 mkdir -p ~/.config/fish/completions
