@@ -71,6 +71,7 @@ pacman --noconfirm -S \
 	python2-pip \
 	python2-setuptools \
 	python3 \
+	redis \
 	ripgrep \
 	rust \
 	the_silver_searcher \
