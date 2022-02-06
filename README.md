@@ -1,65 +1,57 @@
 # Arch VM
 
-This repo details the protocol for setting up my development VM.
+This repo contains a set of scripts to do the basic provisioning for my
+Arch Linux development VM. The scripts only perform provisioning for the base
+OS. Separate scripts (stored elsewhere) are used for full setup.
 
-## Prelude
+## Bootable Image
 
-Download latest [Arch Linux image](https://www.archlinux.org/download/).
+Download latest Arch Linux image:
 
-Ensure you're running the latest version of Virtual Box.
+| Architecture | Image                                                               |
+| ---          | ---                                                                 |
+| `x86_64`     | [Link](https://www.archlinux.org/download/)                         |
+| `aarch64`    | [Link](https://pkgbuild.com/~tpowa/archboot-images/aarch64/latest/) |
 
-Create a new virtual machine using the following details:
+## Set up the VM
 
-| Setting | Value                                                    |
-| ---     | ---                                                      |
-| Name    | `archvm_YYYYMMDD`                                        |
-| Type    | Linux                                                    |
-| Version | Arch Linux (64-bit)                                      |
-| Memory  | 1024 MB (4096MB for work)                                |
-| Disk    | New, VDI, Dynamic, default name, 100 GB (250GB for work) |
+Ensure you're running the latest version of the virtualisation software (e.g.
+Virtual Box or Parallels).
 
-Update the following settings:
+It's important that the VM is set up to use UEFI. Parallels does this by
+default. Virtual Box must be configured to boot with UEFI.
 
-| Setting | Value                                           |
-| ---     | ---                                             |
-| System  | 1 CPU (4 for work)                              |
-| Storage | Downloaded Arch Linux image                     |
-| Audio   | Uncheck "Enable Audio"                          |
-| Network | Forward 22DD->22, 25499, 8080, 8081, 8000, 8001 |
+The VM should be given name `archvmYYYYMMDD`.
 
-## Step 1
+Resource settings:
 
-Start the VM then run the following commands:
+| Setting | Home   | Work   |
+| ---     | ---    | ---    |
+| CPU     | 2      | 2      |
+| Memory  | 2048MB | 4096MB |
+| Disk    | 100GB  | 250GB  |
+
+The port `22DD` on the host should be forwarded to `22` on the guest (for SSH).
+
+## Commands
+
+Once the VM boots up into the live installer, execute the following steps by
+typing them manually:
 
 ```
 loadkeys dvorak
-echo DNSSEC=false >> /etc/systemd/resolved.conf
-systemctl restart systemd-resolved.service
-curl https://raw.githubusercontent.com/peterstace/archvm/master/install.sh | bash
-shutdown -h now
+curl -L https://tinyurl.com/52f3wz3n | bash
 ```
 
-## Step 2
+# TODOs
 
-Unmount the live CD, start the VM up again, and login as root.
+- Does using the "larger" image really matter? All things being equal, smaller
+  image is better. Need to try out both (I've been using the "larger" one).
 
-Run the following commands:
+- Work out how to install from the generic ARM images.
 
-```
-/archvm/post_install.sh
-shutdown -h now
-```
+- Strip anything from the install scripts that aren't actually needed.
 
-## Step 3
+- Add comments for _why_ everything is needed.
 
-Start the VM, but don't login. Instead, SSH into the machine using the following command:
-
-```
-ssh -p 22XX petsta@localhost
-```
-
-Then run the following command:
-
-```
-/archvm/setup.sh
-```
+- Use notices rather than comments.
