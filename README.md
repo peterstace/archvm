@@ -27,7 +27,7 @@ Resource settings:
 
 | Setting | Home   | Work   |
 | ---     | ---    | ---    |
-| CPU     | 2      | 2      |
+| CPU     | 2      | 4      |
 | Memory  | 2048MB | 4096MB |
 | Disk    | 100GB  | 250GB  |
 
@@ -40,7 +40,7 @@ typing them manually:
 
 ```
 loadkeys dvorak
-curl -L https://tinyurl.com/52f3wz3n | bash
+curl -L tinyurl.com/52f3wz3n | bash
 ```
 
 # TODOs

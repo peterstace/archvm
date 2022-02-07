@@ -2,13 +2,19 @@
 
 set -eux
 
-# Ensure we're booted in UEFI mode.
+notice() {
+	set +x
+	printf '\e[32m%s\n\e[0m' "$@"
+	set -x
+}
+
+notice "Checking UEFI boot mode."
 test -d /sys/firmware/efi/efivars
 
-# Update system clock.
+notice "Updating system clock."
 timedatectl set-ntp true
 
-# Prepare disk.
+notice "Preparing disk."
 for dev in /dev/sda1 /dev/sda2; do
 	if grep $dev /etc/mtab -q; then
 		umount $dev
@@ -25,34 +31,34 @@ mount /dev/sda2 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
-# Fetch chroot script. This is done as early as possible (after preparing the
-# location to save it to) in case internet connectivity is not working.
+notice "Fetching chroot script."
+# Done as early as possible (after preparing the location to save it to) in
+# case internet connectivity is not working.
 mkdir -p /mnt/archvm
-src="https://raw.githubusercontent.com/peterstace/archvm/m1/eufi_chroot.sh"
-dst="/mnt/archvm/eufi_chroot.sh"
+src="https://raw.githubusercontent.com/peterstace/archvm/master/chroot.sh"
+dst="/mnt/archvm/chroot.sh"
 curl "$src" > "$dst"
 chmod +x "$dst"
 
-# Select mirrors. Only needed for x86_64, because aarch64 mirrors do GeoIP
-# based balancing. The reflector package doesn't exist for aarch64.
+notice "Selecting mirrors."
+# Only needed for x86_64, because aarch64 mirrors do GeoIP based balancing. The
+# reflector package doesn't exist for aarch64.
 if [ "$(uname -m)" == x86_64 ]; then
 	# TODO: disable the reflector daemon so that it doesn't try to overwrite
 	# the mirror list.
 	reflector --country Australia --sort rate > /etc/pacman.d/mirrorlist
 fi
 
-# Install base.
+notice "Installing base."
 pacstrap /mnt base linux linux-firmware
 
-# Generate fstab.
+notice "Generating fstab."
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Run remainder of install inside chroot.
-arch-chroot /mnt /archvm/eufi_chroot.sh
+notice "Run chroot script."
+arch-chroot /mnt /archvm/chroot.sh
 
-# Shutdown message.
-# TODO: on Parallels, there is no need to remove the installation media. Could
-# this just be a `restart` command rather than a message?
+notice "Shutdown notice."
 echo "Installation complete. You can now:"
 echo "  - Shutdown the VM using \`shutdown -h now\`"
 echo "  - Remove the installation media"
