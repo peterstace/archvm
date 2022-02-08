@@ -39,8 +39,7 @@ echo "DefaultTimeoutStartSec=30s" >> /etc/systemd/system.conf
 echo "DefaultTimeoutStopSec=30s" >> /etc/systemd/system.conf
 
 notice "Setting up NTP."
-systemctl enable systemd-timesyncd.service
-timedatectl set-ntp true
+timedatectl set-ntp 1
 
 notice "Setting up swap."
 # TODO: This isn't idempotent, and fails on second run.
