@@ -8,10 +8,10 @@ OS. Separate scripts (stored elsewhere) are used for full setup.
 
 Download latest Arch Linux image:
 
-| Architecture | Image                                                               |
-| ---          | ---                                                                 |
-| `x86_64`     | [Link](https://www.archlinux.org/download/)                         |
-| `aarch64`    | [Link](https://pkgbuild.com/~tpowa/archboot-images/aarch64/latest/) |
+| Architecture | Image                                                               | Notes |
+| ---          | ---                                                                 | ---   |
+| `x86_64`     | [Link](https://www.archlinux.org/download/)                         |       |
+| `aarch64`    | [Link](https://pkgbuild.com/~tpowa/archboot-images/aarch64/latest/) | The image filename matches the format `archlinux-archboot-YYYY.MM.DD-HH.SS-aarch64.iso`. |
 
 ## Set up the VM
 
