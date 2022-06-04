@@ -29,7 +29,7 @@ Resource settings:
 | ---     | ---    | ---    |
 | CPU     | 2      | 4      |
 | Memory  | 2048MB | 4096MB |
-| Disk    | 100GB  | 250GB  |
+| Disk    | 64GB   | 250GB  |
 
 The port `22DD` on the host should be forwarded to `22` on the guest (for SSH).
 
