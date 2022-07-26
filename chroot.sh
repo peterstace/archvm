@@ -68,8 +68,11 @@ notice "Installing extra packages."
 pacman --noconfirm -S dhcpcd openssh sudo git
 systemctl enable dhcpcd.service
 systemctl enable sshd.service
-echo "Defaults passwd_timeout=0" >> /etc/sudoers
-echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+echo "
+Defaults passwd_timeout=0
+%wheel ALL=(ALL) ALL
+petsta ALL=(ALL) NOPASSWD: ALL
+" >> /etc/sudoers
 
 notice "Creating user."
 useradd -m petsta
