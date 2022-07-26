@@ -49,6 +49,9 @@ if [ "$(uname -m)" == x86_64 ]; then
 	reflector --country Australia --sort rate > /etc/pacman.d/mirrorlist
 fi
 
+notice "Updating keyring."
+pacman --noconfirm -Sy archlinux-keyring
+
 notice "Installing base."
 pacstrap /mnt base linux linux-firmware
 
