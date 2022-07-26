@@ -50,7 +50,6 @@ if [ "$(uname -m)" == x86_64 ]; then
 fi
 
 notice "Installing base."
-exec bash
 pacstrap /mnt base linux linux-firmware
 
 notice "Generating fstab."
