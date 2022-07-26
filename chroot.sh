@@ -50,11 +50,6 @@ mkswap /swapfile
 swapon /swapfile
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 
-notice "Updating keyring"
-# Prevent any signing problems from old keys.
-pacman -Sy archlinux-keyring
-pacman -Su
-
 notice "Installing guest modules."
 # Guest modules set up separately from other packages due to provider
 # dependencies.
