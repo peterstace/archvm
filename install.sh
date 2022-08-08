@@ -14,22 +14,36 @@ test -d /sys/firmware/efi/efivars
 notice "Updating system clock."
 timedatectl set-ntp true
 
+if [ -e /dev/sda ]; then
+	device=/dev/sda
+	part1=${device}1
+	part2=${device}2
+elif [ -e /dev/nvme0n1 ]; then
+	device=/dev/nvme0n1
+	part1=${device}p1
+	part2=${device}p2
+else
+	echo "can't determine disk"
+	exit 1
+fi
+export part2 # needed inside chroot
+
 notice "Preparing disk."
-for dev in /dev/sda1 /dev/sda2; do
-	if grep $dev /etc/mtab -q; then
-		umount $dev
+for part in $part1 $part2; do
+	if grep $part /etc/mtab -q; then
+		umount $part
 	fi
 done
-parted -s /dev/sda mklabel gpt
-parted -s /dev/sda mkpart primary fat32 0% 512MiB
-parted -s /dev/sda mkpart primary ext4 512MiB 100%
-parted -s /dev/sda set 1 esp on
-parted -s /dev/sda set 1 boot on
-mkfs.fat -F 32 /dev/sda1
-mkfs.ext4 -F /dev/sda2
-mount /dev/sda2 /mnt
+parted -s $device mklabel gpt
+parted -s $device mkpart primary fat32 0% 512MiB
+parted -s $device mkpart primary ext4 512MiB 100%
+parted -s $device set 1 esp on
+parted -s $device set 1 boot on
+mkfs.fat -F 32 $part1
+mkfs.ext4 -F $part2
+mount $part2 /mnt
 mkdir /mnt/boot
-mount /dev/sda1 /mnt/boot
+mount $part1 /mnt/boot
 
 notice "Fetching chroot script."
 # Done as early as possible (after preparing the location to save it to) in
@@ -50,6 +64,18 @@ if [ "$(uname -m)" == x86_64 ]; then
 fi
 
 notice "Updating keyring."
+if [ "$(uname -m)" == aarch64 ]; then
+	# Package signing works a little bit differently on aarch64. See
+	# https://archlinuxarm.org/about/package-signing for details.
+	#
+	# Note that the master key may have been created when the wrong local time
+	# was set. In order to fix that, remove the keys completely before setting
+	# up new keys. See https://bbs.archlinux.org/viewtopic.php?id=201776 for
+	# details.
+	rm -rf /etc/pacman.d/gnupg
+	pacman-key --init
+	pacman-key --populate archlinuxarm
+fi
 pacman --noconfirm -Sy archlinux-keyring
 
 notice "Installing base."
@@ -59,6 +85,11 @@ notice "Generating fstab."
 genfstab -U /mnt >> /mnt/etc/fstab
 
 notice "Run chroot script."
+if grep /mnt/dev /etc/mtab -q; then
+	# This is to work around a bug in arch-chroot, see
+	# https://bbs.archlinux.org/viewtopic.php?id=278432
+	umount /mnt/dev
+fi
 arch-chroot /mnt /archvm/chroot.sh
 
 notice "Shutdown notice."
