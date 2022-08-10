@@ -64,18 +64,13 @@ if [ "$(uname -m)" == x86_64 ]; then
 fi
 
 notice "Updating keyring."
-if [ "$(uname -m)" == aarch64 ]; then
-	# Package signing works a little bit differently on aarch64. See
-	# https://archlinuxarm.org/about/package-signing for details.
-	#
-	# Note that the master key may have been created when the wrong local time
-	# was set. In order to fix that, remove the keys completely before setting
-	# up new keys. See https://bbs.archlinux.org/viewtopic.php?id=201776 for
-	# details.
-	rm -rf /etc/pacman.d/gnupg
-	pacman-key --init
-	pacman-key --populate archlinuxarm
-fi
+# The master key may have been created when the wrong local time was set. In
+# order to fix that, remove the keys completely before setting up new keys. See
+# https://bbs.archlinux.org/viewtopic.php?id=201776 for details.
+rm -rf /etc/pacman.d/gnupg
+pacman-key --init
+# For aarch64, see https://archlinuxarm.org/about/package-signing for details.
+pacman-key --populate "archlinux$(uname -m | sed -e 's!aarch64!arm!' -e 's!x86_64!!')"
 pacman --noconfirm -Sy archlinux-keyring
 
 notice "Installing base."
