@@ -63,15 +63,17 @@ if [ "$(uname -m)" == x86_64 ]; then
 	reflector --country Australia --sort rate > /etc/pacman.d/mirrorlist
 fi
 
-notice "Updating keyring."
-# The master key may have been created when the wrong local time was set. In
-# order to fix that, remove the keys completely before setting up new keys. See
-# https://bbs.archlinux.org/viewtopic.php?id=201776 for details.
-rm -rf /etc/pacman.d/gnupg
-pacman-key --init
-# For aarch64, see https://archlinuxarm.org/about/package-signing for details.
-pacman-key --populate "archlinux$(uname -m | sed -e 's!aarch64!arm!' -e 's!x86_64!!')"
-pacman --noconfirm -Sy archlinux-keyring
+###  TODO: put this behind a hack toggle
+###
+###  notice "Updating keyring."
+###  # The master key may have been created when the wrong local time was set. In
+###  # order to fix that, remove the keys completely before setting up new keys. See
+###  # https://bbs.archlinux.org/viewtopic.php?id=201776 for details.
+###  rm -rf /etc/pacman.d/gnupg
+###  pacman-key --init
+###  # For aarch64, see https://archlinuxarm.org/about/package-signing for details.
+###  pacman-key --populate "archlinux$(uname -m | sed -e 's!aarch64!arm!' -e 's!x86_64!!')"
+###  pacman --noconfirm -Sy archlinux-keyring
 
 notice "Installing base."
 pacstrap /mnt base linux linux-firmware
@@ -80,11 +82,13 @@ notice "Generating fstab."
 genfstab -U /mnt >> /mnt/etc/fstab
 
 notice "Run chroot script."
-if grep /mnt/dev /etc/mtab -q; then
-	# This is to work around a bug in arch-chroot, see
-	# https://bbs.archlinux.org/viewtopic.php?id=278432
-	umount /mnt/dev
-fi
+###  TODO: put this behind a hack toggle
+###
+###  if grep /mnt/dev /etc/mtab -q; then
+###  	# This is to work around a bug in arch-chroot, see
+###  	# https://bbs.archlinux.org/viewtopic.php?id=278432
+###  	umount /mnt/dev
+###  fi
 arch-chroot /mnt /archvm/chroot.sh
 
 notice "Shutdown notice."
