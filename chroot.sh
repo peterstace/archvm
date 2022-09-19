@@ -33,6 +33,7 @@ echo DNSSEC=false >> /etc/systemd/resolved.conf
 
 notice "Setting up DNS for dhcpcd."
 echo "static domain_name_servers=8.8.8.8 8.8.4.4" >> /etc/dhcpcd.conf
+echo "#static domain_name_servers=10.140.21.86" >> /etc/dhcpcd.conf
 
 notice "Setting shutdown timeout."
 echo "DefaultTimeoutStartSec=30s" >> /etc/systemd/system.conf
