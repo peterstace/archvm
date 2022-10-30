@@ -31,9 +31,7 @@ Resource settings:
 | Memory  | 2048MB | 4096MB |
 | Disk    | 64GB   | 250GB  |
 
-The port `22DD` on the host should be forwarded to `22` on the guest (for SSH).
-
-## Commands
+## Invoke install script
 
 Once the VM boots up into the live installer, execute the following steps by
 typing them manually:
@@ -42,6 +40,15 @@ typing them manually:
 loadkeys dvorak
 curl -L tinyurl.com/52f3wz3n | bash
 ```
+
+## Forward ports
+
+The port `22DD` on the host should be forwarded to `22` on the guest (for SSH).
+
+In VMware Fusion, this can be done by configuring a custom network named "NAT
+w/ Ports", which contains the appropriate forwarding rule. The VM should then
+be configured to use that network. To get the IP address of the VM, use the `ip
+addr` command inside the VM itself.
 
 # TODOs
 
