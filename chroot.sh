@@ -53,6 +53,17 @@ echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 notice "Installing guest modules."
 # Guest modules set up separately from other packages due to provider
 # dependencies.
+#
+# I've had some problems executing this. The error message is:
+#
+# "Signature is unknown trust"
+#
+# Solution was to:
+#
+# rm -rf /etc/pacman.d/gnupg
+# pacman-key --init
+# pacman-key --populate archlinux
+#
 if [ "$(uname -m)" == x86_64 ]; then
 	pacman --noconfirm -S virtualbox-guest-utils-nox
 fi
